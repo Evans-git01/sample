@@ -256,3 +256,63 @@
 .secondary-btn:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+/* Contact Section */
+.contact-section {
+  background-color: #f9fafb;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 700px;
+  margin: auto;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #2e0cc7;
+}
+
+.contact-section p {
+  font-size: 1rem;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #2e0cc7;
+}
+
+.contact-btn {
+  background-color: #2e0cc7;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #1e089d;
+}
