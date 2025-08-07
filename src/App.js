@@ -1,7 +1,16 @@
 import Home from "./layout/Home";
-import { BrowserRouter ,Routes ,Route } from "react-router-dom";
+import { BrowserRouter ,Routes ,Route ,Outlet ,Navigate } from "react-router-dom";
 import SignUp from "./pages/Signup";
-import PrivateRoute from "./pages/Context/PrivateRoute";
+import Dashboard from "./pages/Dashboard";
+import { getAuth } from "firebase/auth";
+
+
+
+const PrivateRoutes = () => {
+  const auth = getAuth();
+  // If no user, redirect to /siup; else render <Outlet />
+  return auth.currentUser ? <Outlet /> : <Navigate to="/signup" replace />;
+};
 export default function App () {
 
 
@@ -11,12 +20,15 @@ return(
     <Route path="/" element={<Home>
       
     </Home>}/>
-    <Route> element={<PrivateRoute/>}
+    <Route path="/Signup" element={<SignUp/>}/>
     
-    </Route>
+    {/* Protected wrapper */}
+        <Route element={<PrivateRoutes />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          {/* add more protected routes here */}
+        </Route>
 
-    <Route path="/signup" element={<SignUp/>}/> 
-    
+    <Route path="/signup" element={<Navigate to="/signup" />}/> 
   </Routes>
   </BrowserRouter>
 );
