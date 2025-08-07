@@ -1,8 +1,7 @@
-import Login from "./pages/Login";
-import Register from "./pages/Register";
 import Home from "./layout/Home";
 import { BrowserRouter ,Routes ,Route } from "react-router-dom";
-
+import SignUp from "./pages/Signup";
+import PrivateRoute from "./pages/Context/PrivateRoute";
 export default function App () {
 
 
@@ -12,8 +11,12 @@ return(
     <Route path="/" element={<Home>
       
     </Home>}/>
-    <Route path="Login" element={<Login/>}/>
-    <Route path="Register" element={<Register/>}/>
+    <Route> element={<PrivateRoute/>}
+    
+    </Route>
+
+    <Route path="/signup" element={<SignUp/>}/> 
+    
   </Routes>
   </BrowserRouter>
 );
